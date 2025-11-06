@@ -21,7 +21,9 @@ public class voraz {
 
         //Primer contenedor itera hasta encontrar el mejor concatenable
         for(Contenedor c : contenedores){
-
+            //1. Buscar contenedores compatibles
+            //2. Buscar el mas ajustado (valores mas cercanos pero mas grandes)
+            //3. Guardar el mas "ajustado"
         }
 
         return ""; //Temporal
