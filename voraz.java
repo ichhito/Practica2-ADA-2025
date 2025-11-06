@@ -6,13 +6,14 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class voraz {
+public class Voraz {
     
     public String algoritmo(ArrayList<ArrayList<Integer>> listaEntrada){
         ArrayList<Contenedor> contenedores = new ArrayList<>();
 
         int indice = 1; 
         for (ArrayList<Integer> datos : listaEntrada) {
+            Collections.sort(datos);
             contenedores.add(new Contenedor(indice, datos));
             indice++;
         }
@@ -24,6 +25,13 @@ public class voraz {
             //1. Buscar contenedores compatibles
             //2. Buscar el mas ajustado (valores mas cercanos pero mas grandes)
             //3. Guardar el mas "ajustado"
+            
+            for(int i = 1; i<contenedores.size(); i++){
+                for(int j = 0; j<c.indice.size(); j++){
+                    
+                }
+                
+            }
         }
 
         return ""; //Temporal
