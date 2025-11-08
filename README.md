@@ -2,7 +2,7 @@
 Repositorio para la segunda práctica de la asignatura Análisis y Diseño de Algoritmos
 
 
-#TODO
+# TODO
 - Los 3 algoritmos restantes
    - Voraz: Ichiro
    - Backtracking: Diego
