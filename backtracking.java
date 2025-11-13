@@ -1,15 +1,14 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections; 
 
 public class backtracking {
 
     // Variables recibidas del main
     private int k; // Número de contenedores
     private int n; // Número de atributos
-    private ArrayList<Contenedor> contenedores;
+    private ArrayList<Contenedor> contenedores; // Lista de contenedores
 
-    // Variables internas del algoritmo
-    // ¡HEMOS QUITADO LA MATRIZ DE COMPATIBILIDAD!
+    // Variables para del algoritmo
     private ArrayList<Integer> mejorCaminoGlobal;
     private int mejorLongitud;
 
@@ -19,18 +18,17 @@ public class backtracking {
     public backtracking(int k, int n, ArrayList<Contenedor> contenedores) {
         this.k = k; // Número de contenedores
         this.n = n; // Número de atributos
-        this.contenedores = contenedores;
-        
-        // Inicializamos las estructuras internas
+        this.contenedores = contenedores;   // Lista de contenedores
+
+        // Inicializamos 
         this.mejorCaminoGlobal = new ArrayList<>();
         this.mejorLongitud = 0;
-        // Ya no inicializamos la matriz
     }
 
     /**
      * Método principal que EMPIEZA el proceso.
      */
-    public void empieza() {
+    public void empezar() {
         // Probar a iniciar una cadena desde CADA contenedor
         for (int i = 0; i < k; i++) {
             // Cadena de booleanos para marcar qué contenedores ya están dentro de la cadena actual y evitar bucles infinitos (como solo se cogen los que caben, no hace falta marcar los demas)
@@ -43,7 +41,7 @@ public class backtracking {
     }
 
     /**
-     * Algoritmo recursivo con vuelta atrás (Backtracking).
+     * Backtracking
      */
     private void buscarCamino(int contenedorActual, ArrayList<Integer> caminoActual, boolean[] visitados) {
         // Guardar datos para la recursividad
@@ -79,14 +77,17 @@ public class backtracking {
         if (c1.getIndice() == c2.getIndice()) {
             return false;
         }
+        // Creamos nuevas listas copiando los datos originales para no desordenar los atributos originales del contenedor
+        ArrayList<Integer> a1 = new ArrayList<>(c1.getAtributos());
+        ArrayList<Integer> a2 = new ArrayList<>(c2.getAtributos());
 
-        int[] a1 = c1.getAtributos().clone();
-        int[] a2 = c2.getAtributos().clone();
-        Arrays.sort(a1);
-        Arrays.sort(a2);
+        // ORDENAR con Collections.sort() DE MOMENTO, TAL VEZ TEMPORAL
+        Collections.sort(a1);
+        Collections.sort(a2);
 
+        // Se compara para ver si cabe dentro (que a1 sea mas grande en todos los atributos que a2)
         for (int i = 0; i < n; i++) {
-            if (a1[i] >= a2[i]) {
+            if (a1.get(i) >= a2.get(i)) {
                 return false;
             }
         }
@@ -97,6 +98,7 @@ public class backtracking {
      * Imprime la salida
      */
     private void imprimirSolucion() {
+        // System.out.println("Longitud\nOrden de los contenedores(por indices)");
         // Imprime la longitud
         System.out.println(mejorLongitud); 
         // Se recorre la lista directamente

@@ -46,21 +46,21 @@ public class mainAlgoritmos {
                         System.err.println("Error: Faltan atributos en la línea " + (i + 2));
                         return;
                     }
-                    atributos.set(j,lector.nextInt());
+                    // Se añaden al final de la lista los nuevos atributos leidos
+                    atributos.add(lector.nextInt());
                 }
                 // Crear y añadir el objeto Contenedor. El índice comienza en 1.
                 contenedores.add(new Contenedor(i + 1, atributos));
+                /*PRINTS PARA HACER PRUEBAS CON ATRIBUTOS SOBRE LA LECTURA DEL FICHERO
                 System.out.print(i + 1 + " - atributos: ");
                 for (int a : atributos) {
                     System.out.print(a + " ");
                 }
                 System.out.println();
+                */
             }
 
             lector.close();
-
-            // Y AQUI YA LAS LLAMADAS A LOS METODOS DE CADA ALGORTIMO CON N Y CON K
-            // Y LOS ATRIBUTOS ESTAN EN LA LISTA atributos.
 
 
         } catch (FileNotFoundException e) {
@@ -71,6 +71,10 @@ public class mainAlgoritmos {
         }
 
         System.out.println(k + " contenedores, " + n + " atributos por contenedor.");
+            // Y AQUI YA LAS LLAMADAS A LOS METODOS DE CADA ALGORTIMO CON N Y CON K
+            // Y LOS ATRIBUTOS ESTAN EN LA LISTA atributos.
+        backtracking bt = new backtracking(k, n, contenedores);
+        bt.empezar();
 
     }
 }

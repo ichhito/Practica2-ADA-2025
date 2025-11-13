@@ -6,7 +6,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Voraz {
+public class voraz {
     
     public ArrayList<Contenedor> algoritmo(ArrayList<ArrayList<Integer>> listaEntrada){
         ArrayList<Contenedor> contenedores = new ArrayList<>();
