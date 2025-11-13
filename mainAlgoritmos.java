@@ -4,32 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Clase auxiliar para representar un Contenedor.
- * Incluye el índice original y los atributos ordenados (normalizados).
- */
-class Contenedor {
-    private int indice; // Índice original, comenzando desde 1 (requisito de salida)
-    private int[] atributos;
 
-    public Contenedor(int indice, int[] atributos) {
-        this.indice = indice;
-        // Creamos una copia para evitar modificar el array original
-        this.atributos = atributos;
-    }
-
-    public int getIndice() {
-        return indice;
-    }
-
-    public int[] getAtributos() {
-        return atributos;
-    }
-
-    public int getDimension() {
-        return atributos.length;
-    }
-}
 
 /**
  * Clase principal que maneja la entrada de datos y las llamadas a los
