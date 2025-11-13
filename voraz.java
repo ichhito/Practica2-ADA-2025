@@ -8,7 +8,7 @@ import java.util.Collections;
 
 public class Voraz {
     
-    public String algoritmo(ArrayList<ArrayList<Integer>> listaEntrada){
+    public ArrayList<Contenedor> algoritmo(ArrayList<ArrayList<Integer>> listaEntrada){
         ArrayList<Contenedor> contenedores = new ArrayList<>();
 
         int indice = 1; 
@@ -49,7 +49,7 @@ public class Voraz {
         }
         
 
-        return ""; //Temporal
+        return mejorSolucion;
     }
 }
 
