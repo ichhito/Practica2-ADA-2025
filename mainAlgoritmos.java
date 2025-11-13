@@ -38,7 +38,7 @@ public class mainAlgoritmos {
 
             // Leer los K Contenedores (K líneas siguientes)
             for (int i = 0; i < k; i++) {
-                int[] atributos = new int[n];
+                ArrayList<Integer> atributos = new ArrayList<>();
                 for (int j = 0; j < n; j++) {
                     if (!lector.hasNextInt()) {
                         // i+2 porque empieza en la linea 0(+1) y porque la primera linea es la de k y n
@@ -46,7 +46,7 @@ public class mainAlgoritmos {
                         System.err.println("Error: Faltan atributos en la línea " + (i + 2));
                         return;
                     }
-                    atributos[j] = lector.nextInt();
+                    atributos.set(j,lector.nextInt());
                 }
                 // Crear y añadir el objeto Contenedor. El índice comienza en 1.
                 contenedores.add(new Contenedor(i + 1, atributos));
