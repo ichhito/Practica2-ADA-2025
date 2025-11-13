@@ -4,32 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Clase auxiliar para representar un Contenedor.
- * Incluye el índice original y los atributos ordenados (normalizados).
- */
-class Contenedor {
-    private int indice; // Índice original, comenzando desde 1 (requisito de salida)
-    private int[] atributos;
 
-    public Contenedor(int indice, int[] atributos) {
-        this.indice = indice;
-        // Creamos una copia para evitar modificar el array original
-        this.atributos = atributos;
-    }
-
-    public int getIndice() {
-        return indice;
-    }
-
-    public int[] getAtributos() {
-        return atributos;
-    }
-
-    public int getDimension() {
-        return atributos.length;
-    }
-}
 
 /**
  * Clase principal que maneja la entrada de datos y las llamadas a los
@@ -63,7 +38,7 @@ public class mainAlgoritmos {
 
             // Leer los K Contenedores (K líneas siguientes)
             for (int i = 0; i < k; i++) {
-                int[] atributos = new int[n];
+                ArrayList<Integer> atributos = new ArrayList<>();
                 for (int j = 0; j < n; j++) {
                     if (!lector.hasNextInt()) {
                         // i+2 porque empieza en la linea 0(+1) y porque la primera linea es la de k y n
@@ -71,7 +46,7 @@ public class mainAlgoritmos {
                         System.err.println("Error: Faltan atributos en la línea " + (i + 2));
                         return;
                     }
-                    atributos[j] = lector.nextInt();
+                    atributos.set(j,lector.nextInt());
                 }
                 // Crear y añadir el objeto Contenedor. El índice comienza en 1.
                 contenedores.add(new Contenedor(i + 1, atributos));
