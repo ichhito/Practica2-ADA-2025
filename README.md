@@ -4,7 +4,7 @@ Repositorio para la segunda práctica de la asignatura Análisis y Diseño de Al
 
 # TODO
 - Los 3 algoritmos restantes
-   - Voraz: Ichiro
+   - ~~Voraz: Ichiro~~
    - Backtracking: Diego
    - Dinamica: Común
 - Main
