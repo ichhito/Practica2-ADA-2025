@@ -9,25 +9,25 @@ import java.util.Collections;
 public class Voraz {
     
     public String algoritmo(ArrayList<ArrayList<Integer>> listaEntrada){
-        ArrayList<Contenedor> contenedores = new ArrayList<>();
+        ArrayList<ContenedorVoraz> ContenedorVorazes = new ArrayList<>();
 
         int indice = 1; 
-        //Para cada contenedor, ordenamos sus atributos y lo almacenamos
+        //Para cada ContenedorVoraz, ordenamos sus atributos y lo almacenamos
         //Menos lio posteriormente para sacar si es concatenable
         for (ArrayList<Integer> datos : listaEntrada) {
             Collections.sort(datos);
-            contenedores.add(new Contenedor(indice, datos));
+            ContenedorVorazes.add(new ContenedorVoraz(indice, datos));
             indice++;   
         }
 
-        Collections.sort(contenedores);
-        ArrayList<Contenedor> mejorSolucion = new ArrayList<>();
-        for(int i = 0; i<contenedores.size(); i++){
-            ArrayList<Contenedor> intentoActual = new ArrayList<>();
-            Contenedor c = contenedores.get(i);
+        Collections.sort(ContenedorVorazes);
+        ArrayList<ContenedorVoraz> mejorSolucion = new ArrayList<>();
+        for(int i = 0; i<ContenedorVorazes.size(); i++){
+            ArrayList<ContenedorVoraz> intentoActual = new ArrayList<>();
+            ContenedorVoraz c = ContenedorVorazes.get(i);
             intentoActual.add(c);
-            for(int j = i+1; j < contenedores.size(); j++){
-                Contenedor candidato = contenedores.get(j);
+            for(int j = i+1; j < ContenedorVorazes.size(); j++){
+                ContenedorVoraz candidato = ContenedorVorazes.get(j);
                 boolean concatenable = true;
                 for(int k = 0; k < c.atributos.size(); k++){
                     int valorMenor = c.atributos.get(k);
@@ -55,15 +55,15 @@ public class Voraz {
 
 
 /**
- * Clase para almacenar la suma total del contenedor y el contenedor
+ * Clase para almacenar la suma total del ContenedorVoraz y el ContenedorVoraz
  * Supuestamente la forma mas óptima
  */
-class Contenedor implements Comparable<Contenedor> {
+class ContenedorVoraz implements Comparable<ContenedorVoraz> {
     int idOriginal;         
     ArrayList<Integer> atributos;
     long suma;              
 
-    public Contenedor(int id, ArrayList<Integer> datos) {
+    public ContenedorVoraz(int id, ArrayList<Integer> datos) {
         this.idOriginal = id;
         this.atributos = new ArrayList<>(datos);
         
@@ -77,7 +77,7 @@ class Contenedor implements Comparable<Contenedor> {
     }
 
     @Override
-    public int compareTo(Contenedor otro) {
+    public int compareTo(ContenedorVoraz otro) {
         return Long.compare(this.suma, otro.suma);
     }
 }
