@@ -20,7 +20,15 @@ public class dinamica {
      * Metodo para lanzar el algoritmo
      */
     public ArrayList<Contenedor> empezar() {
+        Collections.sort(contenedores);
+        int n = contenedores.size();
+        if (n == 0) return new ArrayList<>();
 
+        // DP[i] almacena longitud de la cadena mas larga que termina en contenedor i
+        int[] dp = new int[n];
+        
+        // PADRES[i] almacena el indice anterior del contenedor i en la cadena mas larga
+        int[] padres = new int[n];
         return new ArrayList<Contenedor>();
     }
 
