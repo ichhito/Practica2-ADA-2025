@@ -3,12 +3,10 @@ import java.util.Collections;
 
 public class backtracking {
 
-    // Variables recibidas del main
     private int k; // Número de contenedores
     private int n; // Número de atributos
     private ArrayList<Contenedor> contenedores; // Lista de contenedores
 
-    // Variables para del algoritmo
     private ArrayList<Integer> mejorCaminoGlobal;
     private int mejorLongitud;
 
@@ -77,7 +75,7 @@ public class backtracking {
         if (c1.getIndice() == c2.getIndice()) {
             return false;
         }
-        // Creamos nuevas listas copiando los datos originales para no desordenar los atributos originales del contenedor
+        // Crea nuevas listas copiando los datos originales para no desordenar los atributos originales del contenedor
         ArrayList<Integer> a1 = new ArrayList<>(c1.getAtributos());
         ArrayList<Integer> a2 = new ArrayList<>(c2.getAtributos());
 
@@ -98,8 +96,6 @@ public class backtracking {
      * Imprime la salida
      */
     public void imprimirSolucion() {
-        // System.out.println("Longitud\nOrden de los contenedores(por indices)");
-        // Imprime la longitud
         System.out.println(mejorLongitud); 
         // Se recorre la lista directamente
         for (int indice : mejorCaminoGlobal) {
