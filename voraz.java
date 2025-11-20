@@ -8,18 +8,7 @@ import java.util.Collections;
 
 public class voraz {
     
-    public ArrayList<Contenedor> algoritmo(ArrayList<ArrayList<Integer>> listaEntrada){
-        ArrayList<Contenedor> contenedores = new ArrayList<>();
-
-        int indice = 1; 
-        //Para cada contenedor, ordenamos sus atributos y lo almacenamos
-        //Menos lio posteriormente para sacar si es concatenable
-        for (ArrayList<Integer> datos : listaEntrada) {
-            Collections.sort(datos);
-            contenedores.add(new Contenedor(indice, datos));
-            indice++;   
-        }
-
+    public ArrayList<Contenedor> algoritmo(ArrayList<Contenedor> contenedores){
         Collections.sort(contenedores);
         ArrayList<Contenedor> mejorSolucion = new ArrayList<>();
         for(int i = 0; i<contenedores.size(); i++){
@@ -30,7 +19,7 @@ public class voraz {
                 Contenedor candidato = contenedores.get(j);
                 boolean concatenable = true;
                 for(int k = 0; k < c.atributos.size(); k++){
-                    int valorMenor = c.atributos.get(k);
+                    int valorMenor = c.getAtributos().get(k);
                     int valorMayor = candidato.atributos.get(k);
                     if(valorMenor >= valorMayor){
                         concatenable = false;
@@ -50,6 +39,19 @@ public class voraz {
         
 
         return mejorSolucion;
+    }
+
+
+        public static void imprimirSalidaEstandar(ArrayList<Contenedor> solucion) {
+        System.out.println(solucion.size());
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < solucion.size(); i++) {
+            sb.append(solucion.get(i).getIndice());
+            if (i < solucion.size() - 1) {
+                sb.append(" ");
+            }
+        }
+        System.out.println(sb.toString());
     }
 }
 

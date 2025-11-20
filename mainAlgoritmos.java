@@ -79,7 +79,7 @@ public class mainAlgoritmos {
             // Y LOS ATRIBUTOS ESTAN EN LA LISTA atributos.
 
         long totalTiempo = 0L;
-        System.out.println("BACKTRAKING");
+        System.out.println("--- BACKTRAKING ---");
 
 
         for(int i=0; i<reps; i++){
@@ -97,5 +97,37 @@ public class mainAlgoritmos {
             }
         }
         System.out.println("El tiempo promedio para BACKTRAKING es: " + (totalTiempo/reps) + "ns");
+
+
+
+
+            long totalTiempoVoraz = 0L;
+            System.out.println("--- VORAZ ---");
+        
+            voraz algoritmoVoraz = new voraz(); 
+            ArrayList<Contenedor> solucionVoraz = new ArrayList<>();
+
+            for(int i = 0; i < reps; i++){
+            //Creamos copia para que no tenga datos desordenados
+            ArrayList<Contenedor> copiaDatos = new ArrayList<>(contenedores);
+
+            System.gc();      
+            Instant start = Instant.now();
+
+            solucionVoraz = algoritmoVoraz.algoritmo(copiaDatos);
+
+            Instant finish = Instant.now();
+            totalTiempoVoraz += Duration.between(start, finish).toNanos();
+
+            // Imprimir solo al final para
+            if (i == reps - 1){
+                voraz.imprimirSalidaEstandar(solucionVoraz);
+            }
+        }
+        System.out.println("El tiempo promedio para VORAZ es: " + (totalTiempoVoraz/reps) + " ns\n");
     }
+
+
+
 }
+
