@@ -37,7 +37,7 @@ public class backtracking {
             buscarCamino(i, caminoActual, visitados);
         }
 
-        imprimirSolucion(); // Imprimir salida
+        // imprimirSolucion(); // Imprimir salida
     }
 
     /**
@@ -97,7 +97,7 @@ public class backtracking {
     /**
      * Imprime la salida
      */
-    private void imprimirSolucion() {
+    public void imprimirSolucion() {
         // System.out.println("Longitud\nOrden de los contenedores(por indices)");
         // Imprime la longitud
         System.out.println(mejorLongitud); 

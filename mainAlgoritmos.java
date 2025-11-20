@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,6 +21,8 @@ public class mainAlgoritmos {
     private static ArrayList<Contenedor> contenedores;
     private static int k; // Cantidad de contenedores
     private static int n; // Número de atributos
+    private static int reps = 10; // Número de atributos
+
 
     public static void main(String[] args) throws IOException {
         // Pedir nombre del fichero de la entrada por teclado al usuario
@@ -70,11 +74,28 @@ public class mainAlgoritmos {
             throw new IOException("No se pudo procesar el archivo", e);
         }
 
-        System.out.println(k + " contenedores, " + n + " atributos por contenedor.");
+        System.out.println(k + " contenedores, " + n + " atributos por contenedor.\n");
             // Y AQUI YA LAS LLAMADAS A LOS METODOS DE CADA ALGORTIMO CON N Y CON K
             // Y LOS ATRIBUTOS ESTAN EN LA LISTA atributos.
-        backtracking bt = new backtracking(k, n, contenedores);
-        bt.empezar();
 
+        long totalTiempo = 0L;
+        System.out.println("BACKTRAKING");
+
+
+        for(int i=0; i<reps; i++){
+            System.gc();        //para medir el tiempo
+            Instant start = Instant.now();
+
+            backtracking bt = new backtracking(k, n, contenedores);
+            bt.empezar();
+
+            Instant finish = Instant.now();
+            totalTiempo += Duration.between(start, finish).toNanos();
+
+            if (i == reps-1){
+                bt.imprimirSolucion(); 
+            }
+        }
+        System.out.println("El tiempo promedio para BACKTRAKING es: " + (totalTiempo/reps) + "ns");
     }
 }
