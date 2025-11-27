@@ -1,3 +1,7 @@
+/**
+ * @author diegmar
+ * Implementacion del algoritmo de programacion dinamica para la práctica 2
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -45,6 +49,7 @@ public class dinamica {
         mejorLongitudGlobal = 0;
         inicioMejorCamino = -1;
 
+<<<<<<< HEAD
         // DP[i] almacena longitud de la cadena mas larga que termina en contenedor i
         int[] dp = new int[n];
         
@@ -59,6 +64,17 @@ public class dinamica {
 
 
 
+=======
+        for (int i = 0; i < k; i++) {
+            int longitudDesdeI = calcularLongitud(i);
+            
+            // Actualiza el MEJOR global almacenado en la clase
+            if (longitudDesdeI > mejorLongitudGlobal) {
+                mejorLongitudGlobal = longitudDesdeI;
+                inicioMejorCamino = i;
+            }
+        }
+>>>>>>> 8ed88578145fa78aa1a66c914544cd98c2abef5e
     }
 
     /**
