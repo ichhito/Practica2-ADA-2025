@@ -10,10 +10,10 @@ public class GeneradorCasos {
 
     public static void main(String[] args) {
         // --- CONFIGURACIÓN DE LA PRUEBA ---
-        int k = 1000;      // Número de contenedores (máx 1000 según pdf)
-        int n = 50;        // Número de atributos (máx 100 según pdf)
+        int k = 100;      // Número de contenedores (máx 1000 según pdf)
+        int n = 10;        // Número de atributos (máx 100 según pdf)
         int maxValor = 100; // Valor máximo para un atributo
-        String nombreFichero = "entrada_generada.txt";
+        String nombreFichero = "entrada-k" + k + "-n" + n + ".txt";
         
         // Llamamos al método para generar
         generarFichero(k, n, maxValor, nombreFichero);
