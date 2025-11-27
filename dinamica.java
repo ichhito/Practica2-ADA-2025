@@ -92,10 +92,8 @@ public class dinamica {
      * Usa las variables guardadas en resolver().
      */
     public void imprimirSolucion() {
-        // [cite: 46] La longitud
         System.out.println(mejorLongitudGlobal); 
         
-        // [cite: 47] Los índices
         if (inicioMejorCamino != -1) {
             int actual = inicioMejorCamino;
             while (actual != -1) {
