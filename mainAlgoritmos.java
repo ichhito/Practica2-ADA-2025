@@ -21,7 +21,7 @@ public class mainAlgoritmos {
     private static ArrayList<Contenedor> contenedores;
     private static int k; // Cantidad de contenedores
     private static int n; // Número de atributos
-    private static int reps = 10; // Número de atributos
+    private static int reps = 100; // Número de atributos
 
 
     public static void main(String[] args) throws IOException {
@@ -79,7 +79,7 @@ public class mainAlgoritmos {
             // Y LOS ATRIBUTOS ESTAN EN LA LISTA atributos.
 
         long totalTiempo = 0L;
-        System.out.println("--- BACKTRAKING ---");
+        System.out.println("BACKTRAKING");
 
 
         for(int i=0; i<reps; i++){
@@ -92,16 +92,15 @@ public class mainAlgoritmos {
             Instant finish = Instant.now();
             totalTiempo += Duration.between(start, finish).toNanos();
 
+            // Solo se imprime la solución en la última vuelta para no ensuciar la consola
             if (i == reps-1){
                 bt.imprimirSolucion(); 
             }
         }
-        System.out.println("El tiempo promedio para BACKTRAKING es: " + (totalTiempo/reps) + "ns");
+        System.out.println("El tiempo promedio para "+ reps +" repeticiones en BACKTRAKING es: " + (totalTiempo/reps) + "ns\n");
 
 
-
-
-            long totalTiempoVoraz = 0L;
+        long totalTiempoVoraz = 0L;
             System.out.println("--- VORAZ ---");
         
             voraz algoritmoVoraz = new voraz(); 
@@ -125,9 +124,26 @@ public class mainAlgoritmos {
             }
         }
         System.out.println("El tiempo promedio para VORAZ es: " + (totalTiempoVoraz/reps) + " ns\n");
+
+
+        totalTiempo = 0L;
+        System.out.println("PROGRAMACION DINAMICA");
+
+        for(int i=0; i<reps; i++){
+            System.gc();        //para medir el tiempo
+            Instant start = Instant.now();
+
+            dinamica pd = new dinamica(k, n, contenedores);
+            pd.empezar();
+
+            Instant finish = Instant.now();
+            totalTiempo += Duration.between(start, finish).toNanos();
+            
+            // Solo se imprime la solución en la última vuelta para no ensuciar la consola
+            if (i == reps-1){
+                pd.imprimirSolucion(); 
+            }
+        }
+        System.out.println("El tiempo promedio para "+ reps +" repeticiones en DINAMICA es: " + (totalTiempo/reps) + "ns\n");
     }
-
-
-
 }
-

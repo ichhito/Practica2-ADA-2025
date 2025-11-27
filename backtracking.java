@@ -3,17 +3,18 @@ import java.util.Collections;
 
 public class backtracking {
 
-    // Variables recibidas del main
     private int k; // Número de contenedores
     private int n; // Número de atributos
     private ArrayList<Contenedor> contenedores; // Lista de contenedores
 
-    // Variables para del algoritmo
     private ArrayList<Integer> mejorCaminoGlobal;
     private int mejorLongitud;
 
     /**
      * Constructor
+     * @param k
+     * @param n
+     * @param contenedores
      */
     public backtracking(int k, int n, ArrayList<Contenedor> contenedores) {
         this.k = k; // Número de contenedores
@@ -41,7 +42,10 @@ public class backtracking {
     }
 
     /**
-     * Backtracking
+     * Búsqueda recursiva del mejor camino desde el contenedor actual.
+     * @param contenedorActual
+     * @param caminoActual
+     * @param visitados
      */
     private void buscarCamino(int contenedorActual, ArrayList<Integer> caminoActual, boolean[] visitados) {
         // Guardar datos para la recursividad
@@ -70,14 +74,17 @@ public class backtracking {
     }
 
     /**
-     * Determina si el contenedor A es compatible con el B.
+     * Comprueba si c1 puede contener a c2
+     * @param c1
+     * @param c2
+     * @return
      */
     private boolean esCompatible(Contenedor c1, Contenedor c2) {
         // Un contenedor NO es compatible consigo mismo!!!!
         if (c1.getIndice() == c2.getIndice()) {
             return false;
         }
-        // Creamos nuevas listas copiando los datos originales para no desordenar los atributos originales del contenedor
+        // Crea nuevas listas copiando los datos originales para no desordenar los atributos originales del contenedor
         ArrayList<Integer> a1 = new ArrayList<>(c1.getAtributos());
         ArrayList<Integer> a2 = new ArrayList<>(c2.getAtributos());
 
@@ -95,11 +102,9 @@ public class backtracking {
     }
 
     /**
-     * Imprime la salida
+     * Imprime la salida obtenida
      */
     public void imprimirSolucion() {
-        // System.out.println("Longitud\nOrden de los contenedores(por indices)");
-        // Imprime la longitud
         System.out.println(mejorLongitud); 
         // Se recorre la lista directamente
         for (int indice : mejorCaminoGlobal) {
