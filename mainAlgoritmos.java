@@ -113,7 +113,7 @@ public class mainAlgoritmos {
             System.gc();      
             Instant start = Instant.now();
 
-            solucionVoraz = algoritmoVoraz.algoritmo(copiaDatos);
+            solucionVoraz = algoritmoVoraz.algoritmo(copiaDatos,k,n);
 
             Instant finish = Instant.now();
             totalTiempoVoraz += Duration.between(start, finish).toNanos();

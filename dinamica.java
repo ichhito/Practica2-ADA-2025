@@ -45,7 +45,6 @@ public class dinamica {
         mejorLongitudGlobal = 0;
         inicioMejorCamino = -1;
 
-<<<<<<< HEAD
         // DP[i] almacena longitud de la cadena mas larga que termina en contenedor i
         int[] dp = new int[n];
         
@@ -60,17 +59,6 @@ public class dinamica {
 
 
 
-=======
-        for (int i = 0; i < k; i++) {
-            int longitudDesdeI = calcularLongitud(i);
-            
-            // Actualiza el MEJOR global almacenado en la clase
-            if (longitudDesdeI > mejorLongitudGlobal) {
-                mejorLongitudGlobal = longitudDesdeI;
-                inicioMejorCamino = i;
-            }
-        }
->>>>>>> 35e598a0ff0bb6e2b1291e657cb6e515624ef75f
     }
 
     /**

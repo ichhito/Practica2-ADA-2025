@@ -10,21 +10,23 @@ public class voraz {
     /**
      * Método principal del algoritmo voraz
      * @param contenedores Lista de contenedores
+     * @param k Número de contenedores
+     * @param n Número de atributos
      * @return Mejor solución encontrada
      */
-    public ArrayList<Contenedor> algoritmo(ArrayList<Contenedor> contenedores){
+    public ArrayList<Contenedor> algoritmo(ArrayList<Contenedor> contenedores, int k, int n){
         Collections.sort(contenedores);
         ArrayList<Contenedor> mejorSolucion = new ArrayList<>();
-        for(int i = 0; i<contenedores.size(); i++){
+        for(int i = 0; i<k; i++){
             ArrayList<Contenedor> intentoActual = new ArrayList<>();
             Contenedor c = contenedores.get(i);
             intentoActual.add(c);
-            for(int j = i+1; j < contenedores.size(); j++){
+            for(int j = i+1; j < k; j++){
                 Contenedor candidato = contenedores.get(j);
                 boolean concatenable = true;
-                for(int k = 0; k < c.atributos.size(); k++){
-                    int valorMenor = c.getAtributos().get(k);
-                    int valorMayor = candidato.atributos.get(k);
+                for(int dim = 0; dim < n; dim++){
+                    int valorMenor = c.getAtributos().get(dim);
+                    int valorMayor = candidato.atributos.get(dim);
                     if(valorMenor >= valorMayor){
                         concatenable = false;
                         break;
