@@ -49,22 +49,6 @@ public class dinamica {
         mejorLongitudGlobal = 0;
         inicioMejorCamino = -1;
 
-<<<<<<< HEAD
-        // DP[i] almacena longitud de la cadena mas larga que termina en contenedor i
-        int[] dp = new int[n];
-        
-        // PADRES[i] almacena el indice anterior del contenedor i en la cadena mas larga
-        int[] padres = new int[n];
-        // Inicializacion de DP y PADRES
-        for (int i = 0; i < n; i++) {
-            dp[i] = 1;
-            padres[i] = -1; // -1 significa que no tiene padre (es el inicio de cadena)
-        }
-        return new ArrayList<Contenedor>();
-
-
-
-=======
         for (int i = 0; i < k; i++) {
             int longitudDesdeI = calcularLongitud(i);
             
@@ -74,7 +58,6 @@ public class dinamica {
                 inicioMejorCamino = i;
             }
         }
->>>>>>> 35e598a0ff0bb6e2b1291e657cb6e515624ef75f
     }
 
     /**
