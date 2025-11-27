@@ -1,3 +1,8 @@
+/**
+ * @author diegmar
+ * @author ichhito
+ * Implementacion del main para la práctica 2
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

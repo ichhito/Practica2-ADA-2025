@@ -1,3 +1,7 @@
+/**
+ * @author diegmar
+ * Implementacion del algoritmo de programacion dinamica para la práctica 2
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 

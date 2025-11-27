@@ -1,3 +1,7 @@
+/**
+ * @author ichhito
+ * Implementacion de la clase Contenedor para la práctica 2
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 
