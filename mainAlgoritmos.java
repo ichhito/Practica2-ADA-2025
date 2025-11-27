@@ -97,7 +97,7 @@ public class mainAlgoritmos {
                 bt.imprimirSolucion(); 
             }
         }
-        System.out.println("El tiempo promedio para BACKTRAKING es: " + (totalTiempo/reps) + "ns\n");
+        System.out.println("El tiempo promedio para "+ reps +" repeticiones en BACKTRAKING es: " + (totalTiempo/reps) + "ns\n");
 
 
 
@@ -120,6 +120,6 @@ public class mainAlgoritmos {
                 pd.imprimirSolucion(); 
             }
         }
-        System.out.println("El tiempo promedio para DINAMICA es: " + (totalTiempo/reps) + "ns\n");
+        System.out.println("El tiempo promedio para "+ reps +" repeticiones en DINAMICA es: " + (totalTiempo/reps) + "ns\n");
     }
 }
