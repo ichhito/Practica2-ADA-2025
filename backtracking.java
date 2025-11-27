@@ -12,6 +12,9 @@ public class backtracking {
 
     /**
      * Constructor
+     * @param k
+     * @param n
+     * @param contenedores
      */
     public backtracking(int k, int n, ArrayList<Contenedor> contenedores) {
         this.k = k; // Número de contenedores
@@ -39,7 +42,10 @@ public class backtracking {
     }
 
     /**
-     * Backtracking
+     * Búsqueda recursiva del mejor camino desde el contenedor actual.
+     * @param contenedorActual
+     * @param caminoActual
+     * @param visitados
      */
     private void buscarCamino(int contenedorActual, ArrayList<Integer> caminoActual, boolean[] visitados) {
         // Guardar datos para la recursividad
@@ -68,7 +74,10 @@ public class backtracking {
     }
 
     /**
-     * Determina si el contenedor A es compatible con el B.
+     * Comprueba si c1 puede contener a c2
+     * @param c1
+     * @param c2
+     * @return
      */
     private boolean esCompatible(Contenedor c1, Contenedor c2) {
         // Un contenedor NO es compatible consigo mismo!!!!
@@ -93,7 +102,7 @@ public class backtracking {
     }
 
     /**
-     * Imprime la salida
+     * Imprime la salida obtenida
      */
     public void imprimirSolucion() {
         System.out.println(mejorLongitud); 
