@@ -7,7 +7,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class voraz {
-    
+    /**
+     * Método principal del algoritmo voraz
+     * @param contenedores Lista de contenedores
+     * @return Mejor solución encontrada
+     */
     public ArrayList<Contenedor> algoritmo(ArrayList<Contenedor> contenedores){
         Collections.sort(contenedores);
         ArrayList<Contenedor> mejorSolucion = new ArrayList<>();
@@ -41,7 +45,10 @@ public class voraz {
         return mejorSolucion;
     }
 
-
+    /**
+     * Imprime la solución en la salida estándar
+     * @param solucion Mejor solución encontrada
+     */
         public static void imprimirSalidaEstandar(ArrayList<Contenedor> solucion) {
         System.out.println(solucion.size());
         StringBuilder sb = new StringBuilder();

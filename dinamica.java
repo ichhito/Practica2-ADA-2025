@@ -29,7 +29,15 @@ public class dinamica {
         
         // PADRES[i] almacena el indice anterior del contenedor i en la cadena mas larga
         int[] padres = new int[n];
+        // Inicializacion de DP y PADRES
+        for (int i = 0; i < n; i++) {
+            dp[i] = 1;
+            padres[i] = -1; // -1 significa que no tiene padre (es el inicio de cadena)
+        }
         return new ArrayList<Contenedor>();
+
+
+
     }
 
 
