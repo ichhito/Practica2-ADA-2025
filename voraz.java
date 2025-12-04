@@ -16,12 +16,18 @@ public class voraz {
      * @return Mejor solución encontrada
      */
     public ArrayList<Contenedor> algoritmo(ArrayList<Contenedor> contenedores, int k, int n){
+
+        //1. Ordenamos la lista
         Collections.sort(contenedores);
         ArrayList<Contenedor> mejorSolucion = new ArrayList<>();
+
+        //2. Iteramos para encontrar el siguiente intento
         for(int i = 0; i<k; i++){
             ArrayList<Contenedor> intentoActual = new ArrayList<>();
             Contenedor c = contenedores.get(i);
             intentoActual.add(c);
+
+            // 3. Buscamos hacia delante el siguiente que encaje (voraz)
             for(int j = i+1; j < k; j++){
                 Contenedor candidato = contenedores.get(j);
 
@@ -30,7 +36,7 @@ public class voraz {
                 c = candidato;
             }
         }
-
+            //4. Si la cadena encontrada en ese intento es mejor, se guarda
             if(intentoActual.size() > mejorSolucion.size()){
                 mejorSolucion = intentoActual;
             }
