@@ -5,6 +5,7 @@
  */
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class voraz {
     /**
@@ -23,20 +24,13 @@ public class voraz {
             intentoActual.add(c);
             for(int j = i+1; j < k; j++){
                 Contenedor candidato = contenedores.get(j);
-                boolean concatenable = true;
-                for(int dim = 0; dim < n; dim++){
-                    int valorMenor = c.getAtributos().get(dim);
-                    int valorMayor = candidato.atributos.get(dim);
-                    if(valorMenor >= valorMayor){
-                        concatenable = false;
-                        break;
-                    }
-                }
-                if(concatenable){
-                    intentoActual.add(candidato);
-                    c = candidato;
-                }
+
+            if(esCompatible(c,candidato,n)){
+                intentoActual.add(candidato);
+                c = candidato;
             }
+        }
+
             if(intentoActual.size() > mejorSolucion.size()){
                 mejorSolucion = intentoActual;
             }
@@ -46,6 +40,28 @@ public class voraz {
 
         return mejorSolucion;
     }
+
+
+
+    /**
+     * Comprueba si un contenedor "small" cabe en otro "big" 
+     * @param small Contenedor que va dentro
+     * @param big Contenedor que lo contiene
+     * @param n Numero de atributos
+     * @return true si small cabe en big, false en caso contrario
+     */
+    private boolean esCompatible(Contenedor small, Contenedor big, int n){
+        List<Integer> atrSmall = small.getAtributos();
+        List<Integer> atrBig = big.getAtributos();
+
+        for(int i = 0; i < n; i++){
+            if(atrSmall.get(i) >= atrBig.get(i)){
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     /**
      * Imprime la solución en la salida estándar
